@@ -1,0 +1,8 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
