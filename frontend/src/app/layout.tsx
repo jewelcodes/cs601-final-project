@@ -6,6 +6,7 @@
 "use strict";
 
 import { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Etymology App",
@@ -16,7 +17,7 @@ export default function RootLayout({ ...props }: Readonly<{
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en">
+        <html lang="en-us" dir="ltr">
             <body>
                 {props.children}
             </body>
