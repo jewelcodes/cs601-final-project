@@ -150,5 +150,5 @@ async def get_word(word: str):
     return {
         "ok": True,
         "word": word,
-        "etymology": etymology
+        "etymology": list(reversed(etymology))
     }
