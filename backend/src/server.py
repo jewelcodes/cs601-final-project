@@ -10,7 +10,7 @@ import requests
 app = FastAPI()
 
 
-def scrape_wikitionary(word: str) -> str | None:
+def scrape_wiktionary(word: str) -> str | None:
     url = "https://en.wiktionary.org/w/api.php"
     params = {
         "action": "query",
@@ -124,7 +124,7 @@ async def get_word(word: str):
             "error": "Word cannot be empty."
         }
 
-    html = scrape_wikitionary(word)
+    html = scrape_wiktionary(word)
     if not html:
         return {
             "ok": False,
