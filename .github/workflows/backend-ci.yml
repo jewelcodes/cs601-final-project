@@ -1,12 +1,9 @@
-name: Backend CI
+name: Backend
 
 on:
     push:
-        branches:
-        - main
     pull_request:
-        branches:
-        - main
+    workflow_dispatch:
 
 jobs:
     lint:
