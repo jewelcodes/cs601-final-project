@@ -5,8 +5,12 @@
 
 "use strict";
 
+import EtymologyTree from "./components/EtymologyTree/EtymologyTree";
+
 export default function Home() {
     return (
-        <h1>placeholder</h1>
+        <main>
+            <EtymologyTree />
+        </main>
     );
 }

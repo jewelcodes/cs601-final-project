@@ -1,0 +1,72 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+.etymology-tree {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 1.25em;
+    padding: 1em;
+    height: 100vh;
+    overflow: hidden auto;
+    background-color: var(--accent-dark);
+}
+
+@keyframes star-bg {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 105%;
+    }
+}
+
+.etymology-tree-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.etymology-tree-star-bg {
+    position: absolute;
+    opacity: 0.35;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none; /* fuck you, safari */
+}
+
+.etymology-tree-star-bg::after {
+    content: "*";
+    font-size: 1em;
+}
+
+.etymology-node {
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--accent-light);
+    padding: 1em;
+    border-radius: 1.5em;
+}
+
+.etymology-node h2 {
+    margin: 0;
+    font-size: 2em;
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", "Times New Roman",
+        Times, serif;
+    color: var(--gold);
+    text-shadow: 1px 1px 1px var(--gold);
+}
+
+.etymology-node h3 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.25em;
+    font-weight: 500;
+}
