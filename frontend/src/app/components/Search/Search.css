@@ -1,0 +1,70 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    gap: 1em;
+    background-color: var(--accent-dark);
+    color: var(--foreground);
+}
+
+.search-box {
+    display: block;
+    width: 100%;
+    background: inherit;
+    appearance: none;
+    --webkit-appearance: none; /* again, safari lol */
+    border: none;
+    border-radius: 0;
+    padding: 0.5em 0;
+    border-bottom: 2px solid var(--accent-light);
+    color: var(--foreground);
+    font: inherit;
+}
+
+.search-box::placeholder {
+    color: var(--accent-lighter);
+}
+
+.search-box:hover {
+    border-bottom-color: var(--accent-lighter);
+}
+
+.search-box:focus {
+    outline: none;
+    border-bottom-color: var(--gold);
+}
+
+.search-button {
+    appearance: none;
+    --webkit-appearance: none; /* god is looking at us all in disappointment btw */
+    border-radius: 0;
+    background: inherit;
+    border: none;
+    font: inherit;
+    color: var(--foreground);
+    padding: 0.5em;
+    color: var(--gold);
+    cursor: pointer;
+}
+
+.search-button::before {
+    content: "[";
+    padding-right: 0.5em;
+}
+
+.search-button::after {
+    content: "]";
+    padding-left: 0.5em;
+}
+
+.search-button:hover {
+    text-shadow: 0px 0px 1px var(--gold);
+}
