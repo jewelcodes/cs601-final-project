@@ -125,7 +125,7 @@ async def health():
 
 @app.get("/word/{word}")
 async def get_word(word: str):
-    word = word.strip().lower()
+    word = word.strip().lower() if word else None
     if not word:
         return {
             "ok": False,
