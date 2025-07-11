@@ -2,12 +2,21 @@
 # Omar Elghoul
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from bs4 import BeautifulSoup
 from pycountry import languages
 import time
 import requests
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 
 def scrape_wiktionary(word: str) -> str | None:
