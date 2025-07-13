@@ -9,6 +9,7 @@
 import { useState } from "react";
 import { Etymology } from "./interfaces/etymology";
 import EtymologyTree from "./components/EtymologyTree/EtymologyTree";
+import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
 
     return (
         <main>
+            <Header />
             <Search handler={setState} />
             <EtymologyTree
                 etymology={state.etymology}

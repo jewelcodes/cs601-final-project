@@ -1,0 +1,14 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+.link {
+    color: var(--gold);
+    text-decoration: none;
+    color: var(--gold);
+}
+
+.link:hover {
+    text-shadow: 0px 0px 1px var(--gold);
+}

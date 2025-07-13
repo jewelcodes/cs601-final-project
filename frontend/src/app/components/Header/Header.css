@@ -1,0 +1,10 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+header {
+    background-color: var(--accent-dark);
+    color: var(--foreground);
+    padding: 1em 1em 0 1em;
+}
