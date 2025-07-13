@@ -49,7 +49,6 @@
     background: inherit;
     border: none;
     font: inherit;
-    color: var(--foreground);
     padding: 0.5em;
     color: var(--gold);
     cursor: pointer;
