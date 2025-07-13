@@ -36,6 +36,7 @@ export default function Search({ ...props }: Readonly<{
             <input type="text" autoComplete="off" className="search-box"
                 placeholder="Search for a word..."
                 value={searchTerm}
+                required
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
 
