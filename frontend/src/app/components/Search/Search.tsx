@@ -20,10 +20,13 @@ export default function Search({ ...props }: Readonly<{
         const response = await fetchEtymology(searchTerm);
         if(response.status === 200) {
             const etymology: Etymology = await response.json();
+            if(!etymology.ok) {
+                props.handler({ etymology: null, state: "not-found" });
+                return;
+            }
             props.handler({ etymology, state: null });
-        } else if(response.status === 404) {
-            props.handler({ etymology: null, state: "not-found" });
         } else {
+            alert("An error occurred while fetching the etymology. Please try again later.");
             props.handler({ etymology: null, state: "not-found" });
         }
     };
