@@ -8,8 +8,15 @@
 
 import "./EtymologyTree.css";
 import { Etymology } from "@/app/interfaces/etymology";
+import { useState, useEffect } from "react";
 
 const STAR_COUNT = 40;
+
+interface Star {
+    x: number,
+    color: string,
+    duration: number
+};
 
 function EtymologyNode({ ...props }: Readonly<{
     word: string,
@@ -27,14 +34,25 @@ export default function EtymologyTree({ ...props }: Readonly<{
     etymology?: Etymology | null,
     state?: "not-found" | null
 }>) {
+    const [stars, setStars] = useState<Star[]>([]);
+
+    useEffect(() => {
+        const newStars: Star[] = Array.from({ length: STAR_COUNT }, () => ({
+            x: Math.random() * 100,
+            color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+            duration: Math.round(Math.random() * 10) + 5
+        }));
+        setStars(newStars);
+    }, []);
+
     return (
         <div className="etymology-tree">
             <div className="etymology-tree-bg-overlay">
-                {Array.from({ length: STAR_COUNT }).map((_, index) => (
+                {stars.map((star, index) => (
                     <i key={index} aria-hidden={true} className="etymology-tree-star-bg" style={{
-                        "animation": `star-bg ${Math.round(Math.random() * 10) + 5}s linear infinite`,
-                        "left": `${Math.round(Math.random() * 100)}%`,
-                        "color": `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`,
+                        "animation": `star-bg ${star.duration}s linear infinite`,
+                        "left": `${star.x}%`,
+                        "color": star.color,
                     }} />
                 ))}
             </div>
