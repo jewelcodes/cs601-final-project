@@ -30,6 +30,10 @@ main {
     padding: 0;
 }
 
+.transparent {
+    background-color: transparent;
+}
+
 @media screen and (min-width: 600px) {
     main {
         max-width: 600px;
