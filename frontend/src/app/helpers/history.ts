@@ -5,26 +5,46 @@
 
 "use strict";
 
-export const getHistory = () => {
+import { Etymology } from "../interfaces/etymology";
+
+const MAX_HISTORY_ITEMS = 20;
+
+export const getHistory = (): Etymology[] => {
     const history = localStorage.getItem("history");
     return history ? JSON.parse(history) : [];
 };
 
-export const addToHistory = (word: string) => {
+export const getWordFromHistory = (word: string): Etymology | null => {
     const history = getHistory();
-    if(!history.includes(word)) {
-        history.push(word);
-        localStorage.setItem("history", JSON.stringify(history));
-    } else {
-        const index = history.indexOf(word);
-        if(index > -1) {
-            history.splice(index, 1);
-            history.push(word);
-            localStorage.setItem("history", JSON.stringify(history));
-        }
+    return history.find((item: Etymology) => item.word === word) || null;
+};
+
+export const addToHistory = (etymology: Etymology) => {
+    const history = getHistory();
+    const existing = history.findIndex((e: Etymology) => e.word === etymology.word);
+
+    if(existing !== -1) {
+        history.splice(existing, 1);
     }
+
+    history.unshift(etymology);
+
+    if(history.length > MAX_HISTORY_ITEMS) {
+        history.splice(MAX_HISTORY_ITEMS);
+    }
+
+    localStorage.setItem("history", JSON.stringify(history));
 };
 
 export const clearHistory = () => {
     localStorage.removeItem("history");
+};
+
+export const deleteFromHistory = (word: string) => {
+    const history = getHistory();
+    const index = history.findIndex((e: Etymology) => e.word === word);
+    if(index !== -1) {
+        history.splice(index, 1);
+        localStorage.setItem("history", JSON.stringify(history));
+    }
 };
