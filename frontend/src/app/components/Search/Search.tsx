@@ -9,6 +9,7 @@
 import "./Search.css";
 import { useState } from "react";
 import { fetchEtymology } from "../../helpers/fetch";
+import { addToHistory } from "../../helpers/history";
 import { Etymology } from "../../interfaces/etymology";
 
 export default function Search({ ...props }: Readonly<{
@@ -25,8 +26,8 @@ export default function Search({ ...props }: Readonly<{
                 return;
             }
             props.handler({ etymology, state: null });
+            addToHistory(etymology);
         } else {
-            alert("An error occurred while fetching the etymology. Please try again later.");
             props.handler({ etymology: null, state: "not-found" });
         }
     };
@@ -44,9 +45,9 @@ export default function Search({ ...props }: Readonly<{
             />
 
             <div className="search-button-container">
-                <button className="search-button"
-                    aria-label="Search"
-                >Search</button>
+                <button className="search-button" aria-label="Search">
+                    Search
+                </button>
             </div>
         </form>
     );

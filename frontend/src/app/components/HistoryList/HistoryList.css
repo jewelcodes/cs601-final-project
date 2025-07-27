@@ -1,0 +1,76 @@
+/*
+ * Etymology App for CS601
+ * Omar Elghoul
+ */
+
+.history-header {
+    padding: 1em;
+}
+
+.history-header h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+    padding: 1em 0 0.5em 0;
+    margin: 0;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 1em;
+    min-height: 95vh;
+}
+
+.history-list li {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+    border: 1px solid var(--accent-light);
+    padding: 1.25em;
+    border-radius: 1.5em;
+    transition: border-color 0.15s ease;
+}
+
+.history-list li:hover {
+    border-color: var(--accent-lighter);
+}
+
+.history-list li div:first-child {
+    font-size: 1.85em;
+    font-weight: bold;
+    width: 50%;
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", "Times New Roman",
+        Times, serif;
+    color: var(--gold);
+    text-shadow: 1px 1px 1px var(--gold);
+}
+
+.history-list li div:last-child {
+    width: 50%;
+    text-align: right;
+    font-size: 0.875em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.history-list li div:last-child a:first-of-type {
+    color: var(--green);
+    margin-bottom: 0.15em;
+}
+
+.history-list li div:last-child a:last-of-type {
+    color: var(--red);
+}
+
+.history-list a {
+    display: block;
+}
