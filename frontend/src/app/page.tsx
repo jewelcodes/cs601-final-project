@@ -6,7 +6,7 @@
 "use client";
 "use strict";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { fetchEtymology } from "./helpers/fetch";
 import { addToHistory } from "./helpers/history";
@@ -15,7 +15,7 @@ import EtymologyTree from "./components/EtymologyTree/EtymologyTree";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 
-export default function Home() {
+function HomePage() {
     const searchParams = useSearchParams();
     const word = searchParams.get("word");
 
@@ -41,6 +41,8 @@ export default function Home() {
             } else {
                 setState({ etymology: null, state: "not-found" });
             }
+        } else {
+            setState({ etymology: null, state: null });
         }
     }
 
@@ -57,5 +59,13 @@ export default function Home() {
                 state={state.state}
             />
         </main>
+    );
+}
+
+export default function Home() {
+    return (
+        <Suspense>
+            <HomePage />
+        </Suspense>
     );
 }
