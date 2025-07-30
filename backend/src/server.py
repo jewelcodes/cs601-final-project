@@ -7,13 +7,23 @@ from bs4 import BeautifulSoup
 from pycountry import languages
 import time
 import requests
+import os
 
 app = FastAPI()
+
+if os.getenv("ENV", "development") == "production":
+    origins = [
+        "https://etymology.jewelcodes.io"
+    ]
+else:
+    origins = [
+        "*"
+    ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_methods=["*"],
     allow_headers=["*"]
 )
