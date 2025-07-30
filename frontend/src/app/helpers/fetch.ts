@@ -7,7 +7,7 @@
 
 import { getWordFromHistory } from "./history";
 
-const API_ROOT = process.env.NEXT_PUBLIC_API_ROOT || "http://localhost:8000";
+const API_ROOT = process.env.NEXT_ETYMOLOGY_API_ROOT || "http://localhost:8000";
 
 export const fetchEtymology = async (word: string) => {
     const cache = getWordFromHistory(word.trim().toLowerCase());
